@@ -16,7 +16,8 @@ import { Role } from './users/entities/role.entity';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TwilioModule } from './twilio/twilio.module';
-
+import { PaymentRequestsModule } from './payment-requests/payment-requests.module';
+import { PaymentRequests } from './payment-requests/entities/payment-request.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -37,6 +38,7 @@ import { TwilioModule } from './twilio/twilio.module';
         User,
         UserRole,
         Role,
+        PaymentRequests,
       ],
       synchronize: true, // auto create tables (disable in production)
     }),
@@ -47,6 +49,7 @@ import { TwilioModule } from './twilio/twilio.module';
     AuthModule,
     UsersModule,
     TwilioModule,
+    PaymentRequestsModule,
   ],
 })
 export class AppModule {}
@@ -85,6 +88,8 @@ export class AppModule {}
 // import { UsersModule } from './users/users.module';
 // import { Twilio } from 'twilio';
 // import { TwilioModule } from './twilio/twilio.module';
+
+
 
 
 
