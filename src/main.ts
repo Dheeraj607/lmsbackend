@@ -27,7 +27,9 @@ import * as bodyParser from 'body-parser';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.enableCors(); // allow frontend to access backend
+   app.enableCors({
+    origin: '*',
+  }); // allow frontend to access backend
 
   // Serve the 'uploads' folder statically
   app.useStaticAssets(join(__dirname, '..', 'uploads'), {
@@ -43,6 +45,6 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(5000);
+   await app.listen(5000, '0.0.0.0'); 
 }
 bootstrap();
